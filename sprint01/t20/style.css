@@ -8,7 +8,7 @@ body {
   background: green;
   display: inline-block;
   position: absolute;
-  left: .2em; 
+  left: .2em;
   min-width: 5em;
   animation: moving 6s infinite;
   }
