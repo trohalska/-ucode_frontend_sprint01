@@ -1,16 +1,16 @@
 a[href*="//www"] {
   color: green;
 }
-a[href^="https"]:before {
+a[href^="https"]::before {
   content: "\00BB";
   margin-right: 10px;
 }
-a[href^="http:"]:before {
+a[href^="http:"]::before {
   content: "\00D7";
   margin-right: 10px;
   color: red;
 }
-a[target="_blank"]:after {
+a[target="_blank"]::after {
   content: " \21D2";
   color: coral;
 }

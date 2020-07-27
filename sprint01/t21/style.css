@@ -12,13 +12,11 @@ h1 {
   color: #251b19;
   text-align: center;
 }
-section {
-  background: red;
+.boxholder {
   padding: 10px;
   border: 2px solid #251b19;
   border-radius: 10px;
   max-width: 1366px;
-
 }
 .boxholder > div > img {
   width: 100%;
@@ -58,19 +56,16 @@ section {
   .box-1 {grid-column: span 22;}
   .box-2 {grid-column: span 25;}
   .box-3 {grid-column: span 22;}
-  .box-4 {grid-column: span 27;}
-  .box-5 {grid-column: span 23;}
-  .box-6 {grid-column: span 11;}
-
-  .box-4, .box-5 {width: 60%;}
-  .box-4,.box-5, .box-6 {
-    position: relative;
-  }
-  .box-6 > img {max-height: 450px !important;}
-
+  .box-4 {grid-column: span 17;}
+  .box-5 {grid-column: span 14;}
+  .box-6 {grid-column: span 10;}
   .box-7 {grid-column: span 15;}
   .box-8 {grid-column: span 8;}
   .box-9 {grid-column: span 17;}
+
+  .box-4 {grid-row: 4;}
+  .box-5 {grid-row: 5;}
+  .box-6 {grid-row: 4 / 6;}
 
   .box-8 {margin-left: 0;}
 }

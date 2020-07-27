@@ -4,7 +4,7 @@
   height: 220px;
   border: 2px solid #dbd7d8;
 }
-.japan:before {
+.japan::before {
   display: block;
   position: relative;
   left: 95px;

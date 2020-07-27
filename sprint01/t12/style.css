@@ -15,7 +15,7 @@ div {
   right: 50px;
 }
 
-.box:before {
+.box::before {
   content: "";
   border-left: 1px solid black;
   border-right: 1px solid black;
@@ -27,7 +27,7 @@ div {
   height: 118px;
 }
 
-.box:after {
+.box::after {
   content: "";
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -38,5 +38,3 @@ div {
   left: -30px;
   width: calc(100% + 60px);
 }
-
-
