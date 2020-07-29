@@ -18,7 +18,7 @@
         <span>Superhero Name</span>
         <input type="text" name="alias" maxlength="16" placeholder="Superhero alias">
         <span>Age</span>
-        <input type="text" name="alias" maxlength="3" size="4">
+        <input type="number" min="1" max="999">
         <br><br>
         <span>About</span>
         <textarea name="text" cols="70" rows="5" maxlength="500" placeholder="information about the superhero, max 500 symbols"></textarea>
@@ -40,17 +40,17 @@
       </fieldset>
       <fieldset>
         <legend>Origin of Powers</legend>
-        <input type="radio"> Unknown
-        <input type="radio"> Freak lab accident
-        <input type="radio"> Chosen by an ancientwise being
-        <input type="radio"> The superhero is not human
-        <input type="radio"> Other
+        <input type="radio" name="powers"> Unknown
+        <input type="radio" name="powers"> Freak lab accident
+        <input type="radio" name="powers"> Chosen by an ancientwise being
+        <input type="radio" name="powers"> The superhero is not human
+        <input type="radio" name="powers"> Other
       </fieldset>
       <br>
+      <button type="reset">CLEAR</button>
+      <button type="submit">SEND</button>
+      <br><br>
     </form>
-    <button type="reset">CLEAR</button>
-    <button type="submit">SEND</button>
-    <br><br>
   </fieldset>
 </body>
 
