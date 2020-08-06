@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 function checkDivision(beginRange, endRange) {
   do {
@@ -9,22 +9,19 @@ function checkDivision(beginRange, endRange) {
       flag = true;
     }
     if ((beginRange % 3) === 0) {
-      if (flag === true) {
+      if (flag === true)
         str += ',';
-      }
       str += ' is a multiple of 3';
       flag = true;
     }
     if ((beginRange % 10) === 0) {
-      if (flag === true) {
+      if (flag === true)
         str += ',';
-      }
       str += ' is divisible by 10';
       flag = true;
     }
-    if (flag === false) {
+    if (flag === false)
       str += ' -';
-    }
     flag = false;
     console.log(str + '\n');
     beginRange += 1;
@@ -35,11 +32,10 @@ let num1 = +prompt('Enter begin range number: ', 1),
     num2 = +prompt('Enter end range number: ', 100);
 
 if (Number.isInteger(num1) && Number.isInteger(num2)) {
-  if (num1 <= num2) {
+  if (num1 <= num2)
     checkDivision(num1, num2);
-  } else {
+  else
     checkDivision(num2, num1);
-  }
 } else {
   alert('Wrong input. Try again!');
 }
