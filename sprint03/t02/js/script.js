@@ -1,7 +1,11 @@
 'use strict';
 
 function copyObj(n) {
+<<<<<<< HEAD
   return Object.assign({}, n);
+=======
+	return Object.assign({}, n);
+>>>>>>> 3c0ab816af19bd586fc54a6d5775a4914c2afeb2
 }
 
 /*
