@@ -1,8 +1,6 @@
 'use strict';
 
 function ifSmall(n) {
-<<<<<<< HEAD
-<<<<<<< HEAD
   if (n < 10) return (`0${n}`);
   return n;
 }
@@ -15,27 +13,7 @@ function getFormattedDate(d) {
   str2 = `${ifSmall(d.getHours())}:${ifSmall(d.getMinutes())} ${day[d.getDay()]}`;
 
   return str1 + ' ' + str2;
-=======
-=======
->>>>>>> 3c0ab816af19bd586fc54a6d5775a4914c2afeb2
-	if (n < 10) return (`0${n}`);
-	return n;
 }
-
-function getFormattedDate(d) {
-	let str1, str2,
-			day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-	str1 = `${ifSmall(d.getDate())}.${ifSmall(d.getMonth() + 1)}.${d.getFullYear()}`;
-	str2 = `${ifSmall(d.getHours())}:${ifSmall(d.getMinutes())} ${day[d.getDay()]}`;
-
-	return str1 + ' ' + str2;
-<<<<<<< HEAD
->>>>>>> 3c0ab816af19bd586fc54a6d5775a4914c2afeb2
-=======
->>>>>>> 3c0ab816af19bd586fc54a6d5775a4914c2afeb2
-}
-
 
 // const date0 = new Date(1993, 11, 1);
 // const date1 = new Date(1998, 0, -33);
