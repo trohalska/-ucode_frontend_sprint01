@@ -2,6 +2,7 @@
 
 function concat(s1, s2) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   oneArg.count = 0;
 
   function oneArg() {
@@ -17,6 +18,8 @@ function concat(s1, s2) {
     return s1 + ' ' + s2;
 
 =======
+=======
+>>>>>>> 3c0ab816af19bd586fc54a6d5775a4914c2afeb2
 	oneArg.count = 0;
 
 	function oneArg() {
@@ -31,5 +34,8 @@ function concat(s1, s2) {
 	} else {
 		return s1 + ' ' + s2;
 	}
+<<<<<<< HEAD
+>>>>>>> 3c0ab816af19bd586fc54a6d5775a4914c2afeb2
+=======
 >>>>>>> 3c0ab816af19bd586fc54a6d5775a4914c2afeb2
 }

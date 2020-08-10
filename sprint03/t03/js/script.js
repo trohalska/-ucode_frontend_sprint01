@@ -2,6 +2,7 @@
 
 function removeDouble(arr, str) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   let ind;
 
   ind = arr.indexOf(str);
@@ -51,6 +52,8 @@ function changeWords(obj, str1, str2) {
 /*
 const obj = {words: 'newspapers newspapers  books magazines'};
 =======
+=======
+>>>>>>> 3c0ab816af19bd586fc54a6d5775a4914c2afeb2
 	let ind;
 
 	ind = arr.indexOf(str);
@@ -100,6 +103,9 @@ function changeWords(obj, str1, str2) {
 const obj = {
 	words: 'newspapers newspapers  books magazines'
 };
+<<<<<<< HEAD
+>>>>>>> 3c0ab816af19bd586fc54a6d5775a4914c2afeb2
+=======
 >>>>>>> 3c0ab816af19bd586fc54a6d5775a4914c2afeb2
 
 console.log(obj); // {words: "newspapers newspapers  books magazines"}
@@ -113,6 +119,9 @@ console.log(obj); // {words: "books magazines"}
 changeWords(obj, 'books radio  magazines', 'tv internet');
 console.log(obj); // {words: "tv internet"}
 <<<<<<< HEAD
+<<<<<<< HEAD
 */
+=======
+>>>>>>> 3c0ab816af19bd586fc54a6d5775a4914c2afeb2
 =======
 >>>>>>> 3c0ab816af19bd586fc54a6d5775a4914c2afeb2

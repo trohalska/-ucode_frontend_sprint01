@@ -10,8 +10,12 @@ superTeam.members = str.split(',');
 superTeam.agenda = prompt('Goals and ideas the team: ');
 superTeam.isEvil = false;
 <<<<<<< HEAD
+<<<<<<< HEAD
 str = prompt('If team is evil enter "evil" precisely, \
 everithing else for team is good: ');
+=======
+str = prompt('If team is evil enter "evil" precisely, everithing else for team is good: ');
+>>>>>>> 3c0ab816af19bd586fc54a6d5775a4914c2afeb2
 =======
 str = prompt('If team is evil enter "evil" precisely, everithing else for team is good: ');
 >>>>>>> 3c0ab816af19bd586fc54a6d5775a4914c2afeb2
