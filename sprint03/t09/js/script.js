@@ -1,89 +1,113 @@
 'use strict';
 
-const statusDisplay = document.querySelector('.game--status');
+const statusDisplay = document.getElementById('status');
+const count = document.getElementById('numberTurns');
 
 let gameActive = true;
 let currentPlayer = "X";
 let gameState = ["", "", "", "", "", "", "", "", ""];
 
-const winningMessage = () => `Player ${currentPlayer} has won!`;
-const drawMessage = () => `Game ended in a draw!`;
-const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
+const winnMessage = () => `${currentPlayer} has won!`;
+const drawMessage = () => `it's a draw!`;
 
-statusDisplay.innerHTML = currentPlayerTurn();
-
-const winningConditions = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
+const winnLines = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
 ];
 
-function handleCellPlayed(clickedCell, clickedCellIndex) {
-    gameState[clickedCellIndex] = currentPlayer;
-    clickedCell.innerHTML = currentPlayer;
+function handlePlayerTurn() {
+  const p1 = document.getElementById('player1'),
+        p2 = document.getElementById('player2');
+
+  if (currentPlayer === 'X') {
+    p1.style.background = '#8458B3';
+    p2.style.background = '#d0bdf4';
+  } else {
+    p1.style.background = '#d0bdf4';
+    p2.style.background = '#8458B3';
+  }
+};
+
+function handleClick(event) {
+  let clickedIndex = Number(event.target.getAttribute('id'));
+
+  if (gameState[clickedIndex] !== '' || !gameActive)
+    return;
+  gameState[clickedIndex] = currentPlayer;
+  event.target.innerHTML = currentPlayer;
+  count.innerHTML = +count.innerHTML + 1;
+  handleResult();
 }
 
-function handlePlayerChange() {
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
-    statusDisplay.innerHTML = currentPlayerTurn();
-}
+function handleResult() {
+    let roundWon = false,
+        winLine, a ,b, c, i;
 
-function handleResultValidation() {
-    let roundWon = false;
-    for (let i = 0; i <= 7; i++) {
-        const winCondition = winningConditions[i];
-        let a = gameState[winCondition[0]];
-        let b = gameState[winCondition[1]];
-        let c = gameState[winCondition[2]];
-        if (a === '' || b === '' || c === '') {
-            continue;
-        }
-        if (a === b && b === c) {
-            roundWon = true;
-            break
-        }
+    for (i = 0; i < 8; ++i) {
+      winLine = winnLines[i];
+      a = gameState[winLine[0]];
+      b = gameState[winLine[1]];
+      c = gameState[winLine[2]];
+      if (a === b && b === c && c !== '') {
+        roundWon = true;
+        break;
+      }
     }
 
-    if (roundWon) {
-        statusDisplay.innerHTML = winningMessage();
-        gameActive = false;
-        return;
-    }
-
-    let roundDraw = !gameState.includes("");
-    if (roundDraw) {
+    if (roundWon || !gameState.includes('')) {
+      if (roundWon) {
+        statusDisplay.innerHTML = winnMessage();
+        statusDisplay.style.color = '#139de2';
+        winColors(winLine)
+      }
+      else
         statusDisplay.innerHTML = drawMessage();
-        gameActive = false;
-        return;
+      gameActive = false;
+      return;
     }
 
-    handlePlayerChange();
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    handlePlayerTurn();
 }
 
-function handleCellClick(clickedCellEvent) {
-    const clickedCell = clickedCellEvent.target;
-    const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
-
-    if (gameState[clickedCellIndex] !== "" || !gameActive) {
-        return;
-    }
-
-    handleCellPlayed(clickedCell, clickedCellIndex);
-    handleResultValidation();
+function winColors(line) {
+  console.log(`${line}`);
+  for (let i = 0; i < 3; ++i) {
+    let cell = document.getElementById(`${line[i]}`);
+    cell.style.color = '#139de2';
+    cell.style.fontSize = '80px';
+  }
 }
 
-function handleRestartGame() {
+function handleRestart() {
     gameActive = true;
-    currentPlayer = "X";
-    gameState = ["", "", "", "", "", "", "", "", ""];
-    statusDisplay.innerHTML = currentPlayerTurn();
-    document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
+    currentPlayer = 'X';
+    count.innerHTML = '0';
+    statusDisplay.innerHTML = '';
+    statusDisplay.style.color = 'black';
+    gameState = ['', '', '', '', '', '', '', '', ''];
+    handlePlayerTurn();
+
+    let x = document.getElementsByClassName('cell');
+    for (let i = 0; x[i]; ++i) {
+      x[i].innerHTML = '';
+      x[i].style.color = '#232d55';
+      x[i].style.fontSize = '60px';
+    }
 }
 
-document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
-document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
+handlePlayerTurn();
+
+document.addEventListener('click', function(event) {
+  if (event.target.classList.contains('cell')) {
+    handleClick(event);
+  }
+}, false);
+
+document.getElementById('restart').addEventListener('click', handleRestart);
