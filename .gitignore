@@ -4,5 +4,6 @@
 *.o
 *.out
 *.prettierrc
+.vscode
 
 *tmp*

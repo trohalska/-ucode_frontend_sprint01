@@ -16,9 +16,22 @@ function showSlide(n) {
   dots[ind].className += ' active';
 }
 
+function autoShow() {
+  let i, slides;
+
+  slides = document.getElementsByClassName('hide');
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
+  }
+  if (ind >= slides.length) {ind = 0}
+  slides[ind].style.display = "block";
+  ind++;
+  setTimeout(autoShow, 3000);
+}
+
 let listSlides = (n) => {showSlide(ind += n);}
 let currentSlide = (n) => {showSlide(ind = n);}
 
 let ind = 0;
 
-showSlide(ind);
+autoShow();
