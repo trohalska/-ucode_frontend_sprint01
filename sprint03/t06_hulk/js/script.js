@@ -4,7 +4,7 @@ function transformation() {
   let hero = document.getElementById('hero'), // получаем содержимое (обьект)
       lab = document.getElementById('lab');
 
-  if (access.innerHTML === 'Bruce Banner') {
+  if (hero.innerHTML === 'Bruce Banner') {
     hero.innerHTML = 'Hulk';
     hero.style.fontSize = '130px';
     hero.style.letterSpacing = '6px';

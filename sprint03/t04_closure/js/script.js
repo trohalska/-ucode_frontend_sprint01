@@ -5,6 +5,7 @@ function concat(s1, s2) {
 
   function oneArg() {
     let s2 = prompt('Enter second string: ');
+    if (s2 === null) return s1;
 
     oneArg.count++;
     return s1 + ' ' + s2;
