@@ -19,6 +19,6 @@ alert(`Here's the team:
 name - ${superTeam.title}
 leader - ${superTeam.leader}
 members - ${superTeam.members.join(', ')}
-memberCount - ${superTeam.members.length}
+memberCount - ${superTeam.members.length + 1}
 agenda - ${superTeam.agenda}
 isEvil - ${superTeam.isEvil}`);

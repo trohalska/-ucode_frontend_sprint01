@@ -1,8 +1,8 @@
 'use strict';
 
-function removeDouble(arr, str) {
-  let ind;
+let ind, ar, arr, strArr;
 
+function removeDouble(arr, str) {
   ind = arr.indexOf(str);
   while (ind !== -1) {
     arr.splice(ind, 1);
@@ -10,33 +10,30 @@ function removeDouble(arr, str) {
   }
 }
 
-function removeEmpty(arr) {
-  removeDouble(arr, '');
-  const uniqueSet = new Set(arr);
+function firstClean(words) {
+  ar = words.trim().split(' ');
+  while ((ind = ar.indexOf('')) !== -1)
+    ar.splice(ind, 1);
+  const uniqueSet = new Set(ar);
   return [...uniqueSet];
 }
 
 function addWords(obj, str) {
-  let arr, strArr, i, ind;
+  arr = firstClean(obj.words);
+  strArr = firstClean(str);
 
-  arr = removeEmpty(obj.words.split(' '));
-  strArr = removeEmpty(str.split(' '));
-
-  for (i = 0; i < strArr.length; ++i) {
+  for (let i in strArr) {
     ind = arr.indexOf(strArr[i]);
     if (ind === -1)
-      arr.push(strArr[i]);
+      arr.push(strArr[i].trim());
   }
   obj.words = arr.join(' ');
 }
 
 function removeWords(obj, str) {
-  let arr, strArr, i;
-
-  arr = removeEmpty(obj.words.split(' '));
-  strArr = removeEmpty(str.split(' '));
-
-  for (i = 0; i < strArr.length; ++i) {
+  arr = firstClean(obj.words);
+  strArr = firstClean(str);
+  for (let i in strArr) {
     removeDouble(arr, strArr[i]);
   }
   obj.words = arr.join(' ');
@@ -47,17 +44,16 @@ function changeWords(obj, str1, str2) {
   addWords(obj, str2);
 }
 
-/*
-const obj = {words: 'newspapers newspapers  books magazines'};
+
+const obj = {words: '          newspapers      s     newspapers  books magazines       '};
 
 console.log(obj); // {words: "newspapers newspapers  books magazines"}
 
 addWords(obj, 'radio newspapers');
 console.log(obj); // {words: "newspapers books magazines radio"}
 
-removeWords(obj, 'newspapers   radio');
+removeWords(obj, '    s        newspapers   radio');
 console.log(obj); // {words: "books magazines"}
 
-changeWords(obj, 'books radio  magazines', 'tv internet');
+changeWords(obj, 'books radio  magazines', '  v         tv internet');
 console.log(obj); // {words: "tv internet"}
-*/
