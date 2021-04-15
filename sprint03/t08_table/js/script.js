@@ -62,7 +62,7 @@ function tableSort(n) {
           shouldSwitch= true;
           break;
         }
-      } else if (dir == 'desc') {
+      } else if (dir === 'desc') {
         if (r1.innerHTML.toLowerCase() < r2.innerHTML.toLowerCase()) {
           shouldSwitch = true;
           break;
